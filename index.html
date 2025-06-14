@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ∨×××× [수정 금지] ××××∨ -->
+    <title></title>
+    <!-- ∧×××× [수정 금지] ××××∧ -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./common/p5template/p5template.css" />
+
+    <script src="./common/p5template/responsive.js"></script>
+    <script src="./common/p5template/scroll.js"></script>
+    <script src="./common/p5template/title.js"></script>
+    <script src="./common/p5template/references.js"></script>
+    <script src="./common/p5template/paging.js"></script>
+    <script>
+      new P5Template.Scroll();
+
+      // ∨○○○○ [수정 필수] ○○○○∨
+      // 작품 제목, 본인 성명, 작품 공개 연도
+      new P5Template.Title(
+        '바다',
+        '김해솔',
+        '2025'
+      );
+      // 참고자료 목록
+      const references = [
+        {
+          title: '200402',
+          authors: ['Sayama'],
+          year: '2020',
+          publisher: '200402 - openporcessing',
+          url: 'https://openprocessing.org/sketch/866282',
+        },
+        {
+          title: 'Joy Division',
+          authors: ['Matt DesLauriers'],
+          year: '2018',
+          publisher: 'Generative Artistry',
+          url: 'https://generativeartistry.com/tutorials/joy-division/',
+        },
+        {
+          title:
+            'Flow Field Following (Nature of Code)',
+          authors: ['Daniel Shiffman'],
+          year: '2012',
+          publisher: 'natureofcode.com',
+          url: 'https://natureofcode.com/book/chapter-6-autonomous-agents/#example-612-flow-field-following'
+
+        },
+      ];
+      // ∧○○○○ [수정 필수] ○○○○∧
+
+      new P5Template.References(references);
+      new P5Template.Paging();
+    </script>
+
+    <!-- ∨○○○○ [수정 필수] ○○○○∨ -->
+    <!-- p5.js 라이브러리 로딩 -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
+    <!-- 본인 스케치 로딩 -->
+    <script src="./sketches/example.js" defer></script>
+    <!-- ∧○○○○ [수정 필수] ○○○○∧ -->
+  </head>
+  <body>
+    <main id="main">
+      <!-- ∨○○○○ [수정 필수] ○○○○∨ -->
+      <!-- 전체화면 여부 선택 -->
+      <section
+        id="section-canvas"
+        class="section section--canvas canvas"
+        data-full-width="false"
+      >
+        <!-- ∧○○○○ [수정 필수] ○○○○∧ -->
+        <div class="container canvas__container">
+          <div id="canvas-container"></div>
+        </div>
+      </section>
+      <section id="section-control" class="section section--control control">
+        <div class="container control__container control__container">
+          <div class="control__label">
+            <div class="control__label__title title"></div>
+            <div class="control__label__author author"></div>
+          </div>
+          <div class="control__paging">
+            <button
+              id="button-prev"
+              class="icon-button control__button control__button--prev"
+              data-icon="arrow_back_ios_new"
+              aria-label="to previous"
+            ></button>
+            <button
+              id="button-next"
+              class="icon-button control__button control__button--next"
+              data-icon="arrow_forward_ios"
+              aria-label="to next"
+            ></button>
+            <button
+              id="button-list"
+              class="icon-button control__button control__button--list"
+              data-icon="grid_view"
+              aria-label="to list"
+            ></button>
+          </div>
+          <div class="control__scroll">
+            <button
+              id="button-scroll"
+              class="icon-button control__button control__button--scroll"
+              data-icon="arrow_drop_down"
+              aria-label="toggle description"
+              data-toward="down"
+            ></button>
+          </div>
+        </div>
+      </section>
+      <section
+        id="section-information"
+        class="section section--information information"
+      >
+        <div class="container information__container">
+          <div class="information__label">
+            <h1 class="information__label__title title"></h1>
+            <h2 class="information__label__author author"></h2>
+          </div>
+          <div class="information__description">
+            <!-- ∨○○○○ [수정 필수] ○○○○∨ -->
+            <!-- 작품 설명 -->
+            <p>
+              이 프로젝트는 Joy Division의 앨범 커버에서 영감을 받아 제작된 프로젝트로, 웹캠을 이용해서 사용자의 손 모양이나 움직임을 실시간으로 인식하고,그래픽으로 시각화하는 작품입니다.
+              컴퓨터가 웹캠을 통해 실시간으로 화면을 보고, 그 화면은 작은 원들로 잘게 나누어 그래픽으로 나타냅니다. </p>
+            
+            <p>
+              허거덩거스한 사실: 마우스를 움직여보면 이모티콘이 마우스를 따라다닙니다!!
+            </p>
+
+            <p> 손이 화면에 가까이 오면, 그 부분은 배경보다 어둡게 보이게 됩니다. 이 밝기 값을 이용해서 화면 위에 작은 원을 그려주는데, 어두운 곳은 작은 원, 밝은 곳은 큰 원으로 표현됩니다. 이렇게 하면, 원들이 모여서 손의 윤곽을 따라 그려집니다.
+            손을 아무렇게나 움직이면 화면 위의 원들도 함께 변하면서 마치 파도 위에 손이 떠 있는 것처럼 보입니다.</p>
+
+            <p>또한, sin()이라는 수학 함수를 이용해 살짝 흔들리는 파도 효과도 들어가 있어서, 정적인게 아니라 자연스러운 흔들림을 만들어보았습니다.</p>
+
+            <p>그리고 이 프로젝트의 컨셉은 '바다'이기 때문에 마우스를 클릭하면 화면에 바다 이모지(🌊, 🐚, 🐬)가 랜덤하게 떠오릅니다.</p>
+
+            <p> 그래픽이 나오는 뒷 배경은 단순히 한 가지 색이 아니라, 위아래로 색이 점점 바뀌는 그라디언트 배경을 사용했습니다.
+            또한 별처럼 보이는 작은 점들이 천천히 떠다니고, 가끔은 별똥별처럼 빠르게 움직이는 선도 보여서, 전체적으로 밤하늘이나 바닷속에 있는 듯한 분위기를 느낄 수 있습니다.</p>
+            <p></p>
+            <p></p>
+
+            <p>[만들면서 배운 함수들 정리]</p>
+            <p>
+              📌 cap.size(width, height): <p>웹캠 해상도 설정하는 것 근데 해상도가
+              높을수록 자세한 정보를 읽을수는 있지만 속도가 너무 느려져서
+              시도하다가 때려침.</p>
+            </p>
+
+            <p> 📌 createCapture(VIDEO)<p>
+              :웹캠으로 손이나 얼굴을 컴퓨터가 인식하고 이를
+              바탕으로 그림을 그렸다.</p>
+            </p>
+            <p>
+              📌 getCamBrightness(x, y): <p>밝기를 숫자로 알아내는 것 밝으면 1에
+              가깝고 어두우면 0에 가까운 값이 나온다.</p>
+            </p>
+
+            <p>📌sin() + frameCount :
+            <p>wave animation만들 때 사용되는 함수. 이 함수를 사용하면 부드러운 진동효과를 낼 수 있음.</p>
+            </p>
+            
+            <p>
+              📌 drawParticles(): 
+              <p>이걸 사용해서 배경에 작은 별 같은 점들을 계속
+              떠오르게 했다. 별 거 안 했는데 괜히 뭔가 예쁜느낌 들게 해주는 것</p>
+            </p>
+            <p>
+              📌 drawShootingStars():
+              <p>파티클이랑 비슷한 가끔씩 빠르게 지나가는
+              별똥별을 그려주었다. 밤하늘처럼 느껴지게 만들어주는 요소</p> 
+            </p>
+            <!-- ∧○○○○ [수정 필수] ○○○○∧ -->
+          </div>
+          <div class="information__reference">
+            <div class="information__reference__wrap">
+              <div class="information__reference__title">참고자료</div>
+              <ol></ol>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
